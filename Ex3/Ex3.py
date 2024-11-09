@@ -1,9 +1,8 @@
 import json
 
-
 def calcula_faturamento(faturamento_diario):
     # filtrar os dias com faturamento igual a 0
-    faturamento_valido = [f for f in faturamento_diario if f > 0]
+    faturamento_valido = [f['valor'] for f in faturamento_diario if f['valor'] > 0]
 
     menor_faturamento = min(faturamento_valido)
     maior_faturamento = max(faturamento_valido)
@@ -17,7 +16,7 @@ def calcula_faturamento(faturamento_diario):
 with open('faturamento.json') as file:
     dados = json.load(file)
 
-faturamento_diario = dados["faturamento_diario"]
+faturamento_diario = dados 
 
 menor, maior, dias_acima_media = calcula_faturamento(faturamento_diario)
 
